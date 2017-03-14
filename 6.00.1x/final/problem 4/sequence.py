@@ -42,11 +42,12 @@ def longest_run(L):
                 runUp = []
                 runUp.append(L[i])
         finally:
-            if sum(runUp) > sum(winnerUp):
+            if abs(sum(runUp)) > abs(sum(winnerUp)):
                     winnerUp = runUp
-            if sum(runDown) > sum(winnerDown):
+            if abs(sum(runDown)) > abs(sum(winnerDown)):
                     winnerDown = runDown
-    winner = winnerUp if sum(winnerUp) > sum(winnerDown) else winnerDown
+    winner = winnerUp if abs(sum(winnerUp)) > abs(sum(winnerDown)) \
+        else winnerDown
     return winner
 
 
